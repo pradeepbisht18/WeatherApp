@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>WeatherApp</title>
+    </head>
+    <body>
+        <script src="vue.js"></script>
+		<script src="dialog_alert.js"></script>
+        <script type="text/javascript" src="User.json"></script>
+		
+		<div class="app">
+		
+		<!--Modal template to show the About us  message -->
+		<script type="x/template" id="modal-template">
+			<transition name="modal">
+				<div class="modal-mask" @click="close" v-show="show">
+					<div class="modal-container" @click.stop>
+						<div class="modal-header">
+							<h3>Information</h3>
+						</div>
+						<div class="modal-body">
+							<label class="form-label">
+								This is a sample App for weather
+								Updates for a location by specifying
+								the zipcode for the location.
+								
+							</label>
+						</div>
+						<div class="modal-footer text-right">
+							<button class="modal-default-button" @click="closeModal()">
+								close
+							</button>
+						</div>
+					</div>
+				</div>
+			</transition>
+			
+		</script>
+			<img src="../images/download.png" style="width:300px;height:100px;">
+			<header data-role="Header" data-position="top`" >
+                <h2>Cordova Weather App</h2>
+            </header>
+			<!-- Main Page instance for login of the user -->
+            <div id="vue-instance" style='display:block' >
+			
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" required v-model="uName">
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" required v-model="psw">
+				
+                <button class="button-wrapper" id="verify" @click="verify" >login</button>
+					<div id="loginAlert" class="alert" style="display:none">
+					  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+					  <strong>Error!</strong> Enter Correct Credentials
+					</div>
+				
+				<br>
+			</div>
+			<!-- This is the Menu bar for all the pages -->
+			<div class="home-wrapper" id='homeDiv' style='display:none'>
+				<button id="home" @click="home" style="background-color:LightBlue ">Home</button>
+				<button id="logout" @click="logout" style="background-color:LightBlue">LogOut</button>
+		
+				<modal :show="about" @close="about = false"></modal>
+				<button id="about" @click="about=true" style="background-color:LightBlue">About Us</button>
+		
+			</div>
+			
+			<!--This instance is for the options provided in the app the second page requirement are met here-->
+            <div  id="vue-instance-loc" style="display:none">
+				<button  class="button-wrapper" id="current" @click="current">Current location</button>	
+				<button class="button-wrapper" id="specific" @click="specific">Specific location</button>
+				<button class="button-wrapper" id="proceed" @click="proceed">Proceed</button>
+
+			</div>
+
+			
+			<!--This is the proceed page here all the elements in the json are loaded in to
+			    a tabular format-->
+			<div id="vue-instance-search" style="display:none">
+			  <div id="search">
+				Search <input name="query" placeholder="All fields" v-model="searchQuery">
+			  </div>
+			  <search-grid
+				:data="gridData"
+				:columns="gridColumns"
+				:filter-key="searchQuery">
+			  </search-grid>
+			</div>
+			
+			
+			<!-- component template for arranging the data for all the locations and 
+			     seaching and sorting of data is done here-->
+			<script type="text/x-template" id="grid-template">
+			  <table>
+				<thead>
+				  <tr>
+					
+					<th v-for="key in columns"
+					  @click="sortBy(key)"
+					  :class="{ active: sortKey == key }">
+					  {{ key | capitalize }}
+					  <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+					  </span>
+					</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr v-for="entry in filteredData">
+					<td v-for="key in columns">
+					  {{ entry[key] }}
+					</td>
+				  </tr>
+				</tbody>
+			  </table>
+			</script>
+			
+			
+			<!--This is for specific and current locations 
+				Alert messages are also displayed if validations
+				are not met. -->
+			<div id="vue-instance-zipcode" style="display:none">
+				<div id="selectZip" style="display:block">
+					<label for="zip"><b>zip</b></label>
+					<input type="number" placeholder="eg:43613" required v-model="zipCode">
+					<button  class="button-wrapper" id="specific_submit" @click="specific_submit">Submit</button>
+					<div id="zipAlert" class="alert" style="display:none">
+					  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+					  <strong>Error!</strong> {{msg}}
+					</div>
+				
+				</div>
+				<div id="details" style="display:none">
+					<b><u>Weather Updates for:</u></b></br></br>
+					<b>
+					<label v-model="cName">{{ cName }}</label>,
+					<label v-model="stateName">{{stateName}} </label>, 
+					<label v-model="cityName">{{cityName}}</label>, 
+					<label v-model="zipcode">{{zipcode}}</label></br>
+					</b>
+					Temperature: <label v-model="temp">{{ temp }}</label></br>
+					feels like : <label v-model="feels">{{ feels }}</label></br>
+					Humidity   : <label v-model="humid">{{ humid }}</label>
+					Weather    : <label v-model="weather">{{ weather }}</label></br>
+					
+				</div>
+			</div>
+        </div
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+    </body>
+</html>

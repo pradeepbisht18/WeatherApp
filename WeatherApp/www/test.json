@@ -1,0 +1,97 @@
+[
+  {
+    "response": {
+      "version": "0.1",
+      "termsofService": "http://www.wunderground.com/weather/api/d/terms.html",
+      "features": {
+        "conditions": 1
+      }
+    },
+    "current_observation": {
+      "image": {
+        "url": "http://icons.wxug.com/graphics/wu2/logo_130x80.png",
+        "title": "Weather Underground",
+        "link": "http://www.wunderground.com"
+      },
+      "display_location": {
+        "full": "Belleville, WV",
+        "city": "Belleville",
+        "state": "WV",
+        "state_name": "West Virginia",
+        "country": "US",
+        "country_iso3166": "US",
+        "zip": "26133",
+        "magic": "1",
+        "wmo": "99999",
+        "latitude": "39.11999893",
+        "longitude": "-81.73999786",
+        "elevation": "181.4"
+      },
+      "observation_location": {
+        "full": "Lot 16 Berry Woods subdivision, Belleville, West Virginia",
+        "city": "Lot 16 Berry Woods subdivision, Belleville",
+        "state": "West Virginia",
+        "country": "US",
+        "country_iso3166": "US",
+        "latitude": "39.168388",
+        "longitude": "-81.701263",
+        "elevation": "1168 ft"
+      },
+      "estimated": {
+      },
+      "station_id": "KWVBELLE5",
+      "observation_time": "Last Updated on March 20, 1:50 PM EDT",
+      "observation_time_rfc822": "Tue, 20 Mar 2018 13:50:20 -0400",
+      "observation_epoch": "1521568220",
+      "local_time_rfc822": "Tue, 20 Mar 2018 13:50:42 -0400",
+      "local_epoch": "1521568242",
+      "local_tz_short": "EDT",
+      "local_tz_long": "America/New_York",
+      "local_tz_offset": "-0400",
+      "weather": "Overcast",
+      "temperature_string": "41.2 F (5.1 C)",
+      "temp_f": 41.2,
+      "temp_c": 5.1,
+      "relative_humidity": "99%",
+      "wind_string": "From the East at 4.0 MPH Gusting to 6.7 MPH",
+      "wind_dir": "East",
+      "wind_degrees": 88,
+      "wind_mph": 4.0,
+      "wind_gust_mph": "6.7",
+      "wind_kph": 6.4,
+      "wind_gust_kph": "10.8",
+      "pressure_mb": "1003",
+      "pressure_in": "29.62",
+      "pressure_trend": "+",
+      "dewpoint_string": "41 F (5 C)",
+      "dewpoint_f": 41,
+      "dewpoint_c": 5,
+      "heat_index_string": "NA",
+      "heat_index_f": "NA",
+      "heat_index_c": "NA",
+      "windchill_string": "39 F (4 C)",
+      "windchill_f": "39",
+      "windchill_c": "4",
+      "feelslike_string": "39 F (4 C)",
+      "feelslike_f": "39",
+      "feelslike_c": "4",
+      "visibility_mi": "4.0",
+      "visibility_km": "6.4",
+      "solarradiation": "--",
+      "UV": "2",
+      "precip_1hr_string": "0.00 in ( 0 mm)",
+      "precip_1hr_in": "0.00",
+      "precip_1hr_metric": " 0",
+      "precip_today_string": "0.60 in (15 mm)",
+      "precip_today_in": "0.60",
+      "precip_today_metric": "15",
+      "icon": "cloudy",
+      "icon_url": "http://icons.wxug.com/i/c/k/cloudy.gif",
+      "forecast_url": "http://www.wunderground.com/US/WV/Belleville.html",
+      "history_url": "http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=KWVBELLE5",
+      "ob_url": "http://www.wunderground.com/cgi-bin/findweather/getForecast?query=39.168388,-81.701263",
+      "nowcast": ""
+    }
+  }
+  
+]
