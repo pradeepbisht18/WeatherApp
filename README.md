@@ -2,7 +2,7 @@
 Weather App
 
 Task: create a Cordova App for weather monitoring of different locations
-Technologies used : Microsoft Visual studio, Jvascript, Html, Vue. 
+Technologies used : Microsoft Visual studio, Javascript, Html, Vue. 
 
 Application Functioning
 Login page:                                 Home Screen                                Current location page
