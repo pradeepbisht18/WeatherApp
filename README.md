@@ -5,17 +5,15 @@ Task: create a Cordova App for weather monitoring of different locations
 Technologies used : Microsoft Visual studio, Javascript, Html, Vue. 
 
 Application Functioning
-Login page:                                 Home Screen                                Current location page
-     
-
-Specified location                     Success                               
-                   
-
-Proceed Screen and About Us.
-      
-Error handling of screen and Popup
-   
-
+Login page:                                
+![alt text](./WeatherApp/Screenshots/LoginScreen.PNG "LoginPage")
+![alt text](./WeatherApp/Screenshots/HomeScreen.PNG "Home Page" )
+![alt text](./WeatherApp/Screenshots/Curren_Location.PNG "Weather Page" )
+![alt text](./WeatherApp/Screenshots/search_grid_city.PNG "Search" )
+![alt text](./WeatherApp/Screenshots/AboutUs_Modal.PNG "About us Modal implementation" )
+![alt text](./WeatherApp/Screenshots/specified_screen_error_wrongZIP.PNG "Error using Alert" )
+![alt text](./WeatherApp/Screenshots/LoginError.PNG "Error using Alert" )
+![alt text](./WeatherApp/Screenshots/proceed_sort_zip.PNG "Sorting the data of the grid" )
 Code Handling:	
 
 1)	Data is loaded to an array from the json for the weather updates that is being collected from the wunderground api.
